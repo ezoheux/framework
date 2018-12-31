@@ -11,13 +11,8 @@ matrix:
     fast_finish: true
     allow_failures:
         - php: nightly
-os:
-    - windows
-    - linux
 install:
     - travis_retry composer install --no-interaction
-script:
-    - ./vendor/bin/phpunit --coverage-clover ./build/logs/clover.xml
 cache:
     directories:
         - vendor
