@@ -1,33 +1,32 @@
 <?php
+/**
+ * Limeberry Framework
+ *   
+ * A php framework for fast web development.
+ *   
+ * @package Limeberry Framework
+ * @author Sinan SALIH
+ * @copyright Copyright (C) 2018-2019 Sinan SALIH
+ */
 
+namespace limeberry\core
 
 /**
-*	Limeberry Framework
-*	
-*	a php framework for fast web development.
-*	
-*	@package Limeberry Framework
-*	@author Sinan SALIH
-*	@copyright Copyright (C) 2018-2019 Sinan SALIH
-*	
-**/
-namespace limeberry\core
+ * Content class
+ * This class is used to create responses except Views
+ */
+class Content
 {
+ 
     /**
-     * Content class
-     * This class is used to create responses except Views
+     * Print values to screen.
+     *
+     * @param mixed $value The value.
+     *
+     * @return void Returns nothing.
      */
-    class Content {
-        
-        
-        /**
-         * Print values to screen.
-         * @param String $format
-         * @param type $args
-         */
-        public function Render($value="")
-        {
-            echo $value;
-        }
+    public function Render($value="")
+    {
+        echo $value;
     }
 }
