@@ -13,5 +13,5 @@ $path = __DIR__ . '/../vendor/autoload.php';
 if (file_exists($path)) {
     require $path;
 } else {
-    require __DIR__ . '/../autoloader.php';
+    require __DIR__ . '/../autoload.php';
 }
