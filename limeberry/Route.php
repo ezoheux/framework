@@ -39,11 +39,11 @@ class Route extends Configuration
     /**
      * Returns a redirectable url from map name.
      *
-     * @param type $mapname
+     * @param type $mapname The map name.
      *
      * @return string The resolved static map.
      */        
-    public static function ResolveMap($mapname=null)
+    public static function ResolveMap($mapname = null)
     {
         $application_static_routes = Configuration::getStaticRoute();
         if (!is_null($mapname)) {
@@ -56,7 +56,7 @@ class Route extends Configuration
     /**
      * This function is used to redirect your application with headers. 
      *
-     * @param type $mapname      The map name
+     * @param type $mapname      The map name.
      * @param type $setparameter The parameter.
      *
      * @return void Returns nothing.
