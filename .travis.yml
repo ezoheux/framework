@@ -11,6 +11,7 @@ matrix:
     allow_failures:
         - php: nightly
 install:
+    - composer validate
     - travis_retry composer install --no-interaction
 cache:
     directories:
