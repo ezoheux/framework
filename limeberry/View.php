@@ -33,7 +33,7 @@ class View
         if ($isUsual) {
             require ROOT . DS . conf::getApplicationFolder() . DS . 'view' . DS . $viewScript;
         } else {
-            require ROOT . DS . conf::getApplicationFolder() . DS . $viewScript);
+            require ROOT . DS . conf::getApplicationFolder() . DS . $viewScript;
         }
     }
 
