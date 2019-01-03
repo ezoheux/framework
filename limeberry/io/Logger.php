@@ -1,20 +1,20 @@
 <?php
 
 /**
-*	Limeberry Framework
-*	
-*	a php framework for fast web development.
-*	
-*	@package Limeberry Framework
-*	@author Sinan SALIH
-*	@copyright Copyright (C) 2018-2019 Sinan SALIH
-*	
-**/
+ *	Limeberry Framework.
+ *
+ *	a php framework for fast web development.
+ *
+ *	@author Sinan SALIH
+ *	@copyright Copyright (C) 2018-2019 Sinan SALIH
+ *
+ **/
 
 namespace limeberry\io
 {
-    use limeberry\io\SpecialDirectory as SpecialDirectories;
     use limeberry\io\FileSystem as fs;
+    use limeberry\io\SpecialDirectory as SpecialDirectories;
+
     /**
      * This class is used to generate logs. You can use the functions of class for creating
      * Error files, warning files or output messages.
@@ -22,40 +22,35 @@ namespace limeberry\io
      */
     class Logger
     {
-       
-        
         /**
          *  Create an output log file.
-         * @param type $logType LogProvider log type
-         * @param type $logTitle title for your log
+         *
+         * @param type $logType    LogProvider log type
+         * @param type $logTitle   title for your log
          * @param type $logMessage log message
          */
-        public static function Output($logType=2, $logTitle="LOG", $logMessage="NULL")
+        public static function Output($logType = 2, $logTitle = 'LOG', $logMessage = 'NULL')
         {
             switch ($logType) {
                 case 0:
-                    #ERROR
-                    fs::Append(SpecialDirectories::OutputFolder().DS.'Errors.txt',"[{$logTitle}] : {$logMessage}");
+                    //ERROR
+                    fs::Append(SpecialDirectories::OutputFolder().DS.'Errors.txt', "[{$logTitle}] : {$logMessage}");
                     break;
                 case 1:
-                    #WARNING
-                    fs::Append(SpecialDirectories::OutputFolder().DS.'Warnings.txt',"[{$logTitle}] : {$logMessage}");
+                    //WARNING
+                    fs::Append(SpecialDirectories::OutputFolder().DS.'Warnings.txt', "[{$logTitle}] : {$logMessage}");
                     break;
                 case 2:
-                    #OUTPUTMESSAGE
-                    fs::Append(SpecialDirectories::OutputFolder().DS.'Outputs.txt',"[{$logTitle}] : {$logMessage}");
+                    //OUTPUTMESSAGE
+                    fs::Append(SpecialDirectories::OutputFolder().DS.'Outputs.txt', "[{$logTitle}] : {$logMessage}");
                     break;
-                
+
                 default:
-                    #OUTPUTS
-                    fs::Append(SpecialDirectories::OutputFolder().DS.'Outputs.txt',"[{$logTitle}] : {$logMessage}");
+                    //OUTPUTS
+                    fs::Append(SpecialDirectories::OutputFolder().DS.'Outputs.txt', "[{$logTitle}] : {$logMessage}");
                     break;
             }
         }
-        
-        
     }
-  
-}
 
-?>
+}

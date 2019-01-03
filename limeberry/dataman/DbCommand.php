@@ -1,59 +1,57 @@
 <?php
 
 /**
-*	Limeberry Framework
-*	
-*	a php framework for fast web development.
-*	
-*	@package Limeberry Framework
-*	@author Sinan SALIH
-*	@copyright Copyright (C) 2018-2019 Sinan SALIH
-*	
-**/
+ *	Limeberry Framework.
+ *
+ *	a php framework for fast web development.
+ *
+ *	@author Sinan SALIH
+ *	@copyright Copyright (C) 2018-2019 Sinan SALIH
+ *
+ **/
+
 namespace limeberry\dataman
 {
     use PDO;
+
     /**
      * This library is used to run your queries.
      */
     class DbCommand
     {
         /**
-         *
-         * @var string This variable will store your sql query. 
+         * @var string This variable will store your sql query.
          */
         private $_query;
 
         /**
-         *
-         * @var mixed This variable will store your connection 
+         * @var mixed This variable will store your connection
          */
         private $_connection;
 
         /**
-         *
-         * @var string Prepared query statement. 
+         * @var string Prepared query statement.
          */
         private $statement;
 
-
         /**
-         * Create a command
-         * @param String $query Write your query
-         * @param mixed Variable $con get connection source from MySqlConnect class.
+         * Create a command.
+         *
+         * @param string         $query Write your query
+         * @param mixed Variable $con   get connection source from MySqlConnect class.
          */
-        function __construct($query=null, $con=null)
+        public function __construct($query = null, $con = null)
         {
-            $this->_connection= $con;
+            $this->_connection = $con;
             $this->statement = $this->_connection->prepare($query);
         }
 
-
         /**
          * This function is used when you use parameterized queries.
-         * @param String $param  Parameter name
-         * @param String $value Parameter's value
-         * @param type $type optional PDO::Parameter_TYPE
+         *
+         * @param string $param Parameter name
+         * @param string $value Parameter's value
+         * @param type   $type  optional PDO::Parameter_TYPE
          */
         public function SetParameter($param, $value, $type = null)
         {
@@ -75,29 +73,33 @@ namespace limeberry\dataman
             $this->statement->bindValue($param, $value, $type);
         }
 
-
         /**
-         * Fetch all records from returned query
+         * Fetch all records from returned query.
+         *
          * @return bool
          */
         public function FetchAll()
         {
             $this->Execute();
+
             return $this->statement->fetchAll(PDO::FETCH_ASSOC);
         }
 
         /**
-         * Fetch a single record from returned query
+         * Fetch a single record from returned query.
+         *
          * @return bool
          */
         public function Fetch()
         {
             $this->Execute();
+
             return $this->statement->fetch(PDO::FETCH_ASSOC);
         }
 
         /**
          * Count affected rows by your query.
+         *
          * @return int
          */
         public function RowCount()
@@ -106,7 +108,8 @@ namespace limeberry\dataman
         }
 
         /**
-         * Return last inserted id
+         * Return last inserted id.
+         *
          * @return mixed
          */
         public function LastInsertedID()
@@ -114,9 +117,9 @@ namespace limeberry\dataman
             return $this->statement->lastInsertId();
         }
 
-
         /**
          * Execute the command set in constructor.
+         *
          * @return bool
          */
         public function Execute()
@@ -128,11 +131,10 @@ namespace limeberry\dataman
          * Close the opened cursor for make it available
          * for re-execute.
          */
-        public function CloseCommand(){
+        public function CloseCommand()
+        {
             $this->statement->closeCursor();
         }
-
     }
-    
+
 }
-?>

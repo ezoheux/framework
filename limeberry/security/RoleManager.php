@@ -1,18 +1,17 @@
 <?php
 
 /**
-*	Limeberry Framework
-*	
-*	a php framework for fast web development.
-*	
-*	@package Limeberry Framework
-*	@author Sinan SALIH
-*	@copyright Copyright (C) 2018-2019 Sinan SALIH
-*	
-**/
+ *	Limeberry Framework.
+ *
+ *	a php framework for fast web development.
+ *
+ *	@author Sinan SALIH
+ *	@copyright Copyright (C) 2018-2019 Sinan SALIH
+ *
+ **/
+
 namespace limeberry\security
 {
-    use limeberry\security\RoleProvider;
 
     /**
      * A basic role mananer class for Limeberry Framework.
@@ -20,39 +19,36 @@ namespace limeberry\security
      * to manage user accesses to specific controllers.
      * You can read Limeberry - Tutorials Book for using and examples.
      */
-    class RoleManager 
+    class RoleManager
     {
         /**
-         * If user is Authorized
-         * @return boolean
+         * If user is Authorized.
+         *
+         * @return bool
          */
-         public static function isAuthorized()
-         {
-           $roles_provided = RoleProvider::get_provided_roles();
-           $required_roles = RoleProvider::get_required_roles();
-           foreach ($required_roles as $key => $value) {
-                   $auth_man_id[] = $key;
-           }
+        public static function isAuthorized()
+        {
+            $roles_provided = RoleProvider::get_provided_roles();
+            $required_roles = RoleProvider::get_required_roles();
+            foreach ($required_roles as $key => $value) {
+                $auth_man_id[] = $key;
+            }
 
             foreach ($roles_provided as $key => $value) {
-                if(in_array($key, $auth_man_id))
-                {
-                        return true;
-                }else{
-                        return false;
+                if (in_array($key, $auth_man_id)) {
+                    return true;
+                } else {
+                    return false;
                 }
             }
-         }
+        }
 
-         /**
-          * Clear required roles.
-          */
-         public static function ClearRequired()
-         {
+        /**
+         * Clear required roles.
+         */
+        public static function ClearRequired()
+        {
             roleprovider::RequiredRoles(null);
-         }
-
+        }
     }
 }
-
-?>
