@@ -1,8 +1,9 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use limeberry;
 
-namespace limeberry;
+namespace limeberry\tests;
 
 class ComposerTest extends TestCase
 {
