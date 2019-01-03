@@ -10,8 +10,8 @@
 defined('START') ? null : define('START', microtime());
 
 /**
-  * Required for Composer to load libraries.
-  */
+ * Required for Composer to load libraries.
+ */
 $path = __DIR__.'/vendor/autoload.php';
 if (file_exists($path)) {
     require $path;
