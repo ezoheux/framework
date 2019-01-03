@@ -1,10 +1,8 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
-
 namespace limeberry\tests;
 
-class ComposerTest extends TestCase
+class ComposerTest extends \PHPUnit\Framework\TestCase
 {
     public function testFrameworkLoadedThroughComposer()
     {
