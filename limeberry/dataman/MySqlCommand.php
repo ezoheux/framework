@@ -122,6 +122,14 @@ namespace limeberry\dataman
        {
             return $this->statement->execute();
        }
+
+       /**
+         * Close the opened cursor for make it available
+         * for re-execute.
+         */
+        public function CloseCommand(){
+            $this->statement->closeCursor();
+        }
     }
 }
 
