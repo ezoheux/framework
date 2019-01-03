@@ -1,6 +1,4 @@
 composer.phar
-composer.lock
-composer.json
 phpunit.xml
 /vendor/
 /build/
