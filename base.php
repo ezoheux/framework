@@ -8,10 +8,9 @@
  * @copyright Copyright (C) 2018-2019 Sinan SALIH
  */
 
- 
 /**
- * Directory Separator Constant.
- */
+  * Directory Separator Constant.
+  */
 define('DS', DIRECTORY_SEPARATOR);
 
 /*
