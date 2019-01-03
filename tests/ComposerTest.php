@@ -1,7 +1,7 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
 use limeberry;
+use PHPUnit\Framework\TestCase;
 
 namespace limeberry\tests;
 
