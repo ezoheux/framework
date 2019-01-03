@@ -7,10 +7,9 @@
  * @author Sinan SALIH
  * @copyright Copyright (C) 2018-2019 Sinan SALIH
  */
+defined('START') ? null : define('START', microtime());
 
-defined("START") ? null : define("START", microtime());
- 
- /**
+/**
   * Required for Composer to load libraries.
   */
 $path = __DIR__.'/vendor/autoload.php';
