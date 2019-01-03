@@ -17,4 +17,4 @@ define('DS', DIRECTORY_SEPARATOR);
 /** 
  * Root Directory of current running php file.
  */
-define('ROOT', dirname(dirname(__FILE__)));
+define('ROOT', __DIR__);
