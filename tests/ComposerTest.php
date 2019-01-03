@@ -2,6 +2,8 @@
 
 use PHPUnit\Framework\TestCase;
 
+namespace limeberry;
+
 class ComposerTest extends TestCase
 {
     public function testFrameworkLoadedThroughComposer()
