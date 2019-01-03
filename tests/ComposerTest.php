@@ -1,7 +1,7 @@
 <?php
 
-use limeberry;
 use PHPUnit\Framework\TestCase;
+use limeberry;
 
 namespace limeberry\tests;
 
@@ -9,6 +9,6 @@ class ComposerTest extends TestCase
 {
     public function testFrameworkLoadedThroughComposer()
     {
-        $this->assertTrue(defined('limeberry\FRAMEWORK_LOADED'));
+        $this->assertTrue(FRAMEWORK_LOADED);
     }
 }
