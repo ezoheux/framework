@@ -22,7 +22,7 @@
          timeoutForLargeTests="60"
          verbose="false">
     <testsuites>
-        <testsuite name="Limeberry/Framework Test Suite">
+        <testsuite name="Limeberry Framework Test Suite">
             <directory suffix=".php">./tests</directory>
         </testsuite>
     </testsuites>
