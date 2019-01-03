@@ -1,24 +1,20 @@
 <?php
-namespace limeberry
-{
-    
+/**
+ * Limeberry Framework
+ *   
+ * A php framework for fast web development.
+ *   
+ * @package Limeberry Framework
+ * @author Sinan SALIH
+ * @copyright Copyright (C) 2018-2019 Sinan SALIH
+ */
 
-    /**
-     *  Limeberry | PHP MVC Framework
-     *  a new php mvc framework for fast and secure web applications. 
-     *
-     * @package Limeberry Framework 
-     * @author Sinan SALIH
-     * @copyright Copyright (C) 2018-2019 Sinan SALIH
-     */
+use limeberry\Framework;
 
-    require_once 'limeberry/Framework.php';
-    use limeberry\Framework;
+require_once 'limeberry/Framework.php';
 	
-    //app_config.php is the configuration file for your project.
-    Framework::LoadConfig("app_config.php");   
+// app_config.php is the configuration file for your project.
+Framework::LoadConfig("app_config.php");   
     
-    //This line starts your application.
-    Framework::Run();
-}
-?>
+// This line starts your application.
+Framework::Run();
