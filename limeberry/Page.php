@@ -19,6 +19,7 @@ use function str_replace;
 use function ob_start;
 use function ob_get_clean;
 use const ENT_QUOTES;
+use const E_USER_ERROR;
 
 /**
  * @ignore
@@ -73,7 +74,7 @@ class Page
             // Prevent XSS Attacks.
             $output = $this->MASTER . $this->layoutPath . $layoutPathParam;
             $output = htmlspecialchars($output, ENT_QUOTES, 'UTF-8');
-            trigger_error("Error loading template file (" . $output . "). Please check template folder.";
+            trigger_error("Error loading template file (" . $output . "). Please check template folder.", E_USER_ERROR);
         }
     }
 
