@@ -21,9 +21,9 @@ use function strpos;
 use function trigger_error;
 
 /**
-     * Core Module of Limeberry Framework
-     * [Note]: Modification on this file is not recommended you may break the operation of you application.
-     */
+ * Core Module of Limeberry Framework
+ * [Note]: Modification on this file is not recommended you may break the operation of you application.
+ */
 class Framework
 {
     /** @ignore */

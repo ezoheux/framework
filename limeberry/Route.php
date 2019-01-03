@@ -14,9 +14,9 @@ use const null;
 use function is_null;
 
 /**
-     * This class is used to simply manage routes of your application.
-     * All functions of this class must be used in Application Register Function.
-     */
+ * This class is used to simply manage routes of your application.
+ * All functions of this class must be used in Application Register Function.
+ */
 class Route extends Configuration
 {
     /**
