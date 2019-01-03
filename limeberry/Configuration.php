@@ -41,25 +41,25 @@ class Configuration
     private static $errors_enabled;
     /** @ignore */
     private static $application_resource_file;
-    
+
     /**
      * Initialize  default application configuration.
      */
     public function __construct()
     {
-        self::$application_folder          = 'application';
-        self::$application_is_root         = false;
-        self::$application_is_urlsecure    = false;
-        self::$application_unwanted_params = array();
-        self::$application_install_url     = 'localhost';
-        self::$application_static_routes   = array();
-        self::$application_name            = 'Limeberry Application';
-        self::$application_version         = '1.0.0';
-        self::$application_description     = 'Your description for the application';
-        self::$application_query_data      = array();
-        self::$application_resource_file   = ROOT . DS . self::$application_folder . DS . 'resources.xml';
+        self::$application_folder = 'application';
+        self::$application_is_root = false;
+        self::$application_is_urlsecure = false;
+        self::$application_unwanted_params = [];
+        self::$application_install_url = 'localhost';
+        self::$application_static_routes = [];
+        self::$application_name = 'Limeberry Application';
+        self::$application_version = '1.0.0';
+        self::$application_description = 'Your description for the application';
+        self::$application_query_data = [];
+        self::$application_resource_file = ROOT.DS.self::$application_folder.DS.'resources.xml';
     }
-    
+
     /**
      * This function is used to set development environment.
      * Accepted values: "development", "publish", "default".
@@ -74,7 +74,7 @@ class Configuration
                 error_reporting(E_ALL);
                 self::$errors_enabled = true;
                 break;
-            
+
             case 'publish':
                 //set environment for publish;
                 error_reporting(0);
@@ -88,7 +88,7 @@ class Configuration
                 break;
         }
     }
-    
+
     /**
      * Returns true if.
      *
@@ -98,7 +98,7 @@ class Configuration
     {
         return self::$application_is_published;
     }
-    
+
     /**
      * This function is used to set application folder for Limeberry frameworks current config.
      *
@@ -110,7 +110,7 @@ class Configuration
     {
         self::$application_folder = $prm_folder_name;
     }
-    
+
     /**
      * Returns application Folder.
      *
@@ -120,15 +120,15 @@ class Configuration
     {
         return self::$application_folder;
     }
-    
+
     /**
      * Set resource file location of limeberry framework.
      */
     public static function setResourceFile($prm_resource_file = 'resources.xml')
     {
-        self::$application_resource_file = ROOT . DS . self::$application_folder . DS . $prm_resource_file;
+        self::$application_resource_file = ROOT.DS.self::$application_folder.DS.$prm_resource_file;
     }
-    
+
     /**
      * get the resource file path.
      */
@@ -136,7 +136,7 @@ class Configuration
     {
         return self::$application_resource_file;
     }
-    
+
     /**
      * This function is used to determine if your application in server is in root directory or not. Set true if your app will run in root directory.
      *
@@ -146,7 +146,7 @@ class Configuration
     {
         self::$application_is_root = $prm_isroot;
     }
-    
+
     /**
      * Returns application Folder.
      *
@@ -156,7 +156,7 @@ class Configuration
     {
         return self::$application_is_root;
     }
-    
+
     /**
      * This function is very important, when you use response and route class your redirect url will be get from here.
      *
@@ -166,7 +166,7 @@ class Configuration
     {
         self::$application_install_url = $prm_url;
     }
-    
+
     /**
      * Returns application url.
      *
@@ -176,7 +176,7 @@ class Configuration
     {
         return self::$application_install_url;
     }
-    
+
     /**
      * This function is used to prevent web site from unwanted url parameters.
      *
@@ -186,7 +186,7 @@ class Configuration
     {
         self::$application_is_urlsecure = $prm_urlsec;
     }
-    
+
     /**
      * Returns True if Url unwanted parameter security is open.
      *
@@ -196,17 +196,17 @@ class Configuration
     {
         return self::$application_is_urlsecure;
     }
-    
+
     /**
      * Set an array for unwanted characters or words.
      *
      * @returns void
      */
-    public static function UnwantedParameters($chars = array())
+    public static function UnwantedParameters($chars = [])
     {
         self::$application_unwanted_params = $chars;
     }
-    
+
     /**
      * Get  array of unwanted characters or words.
      *
@@ -216,17 +216,17 @@ class Configuration
     {
         return self::$application_unwanted_params;
     }
-    
+
     /**
      * Store Url Query in an array.
      *
      * @param type $query Array
      */
-    public static function setQuery($query = array())
+    public static function setQuery($query = [])
     {
         self::$application_query_data = $query;
     }
-    
+
     /**
      * Returns stored queries.
      *
@@ -236,7 +236,7 @@ class Configuration
     {
         return self::$application_query_data;
     }
-    
+
     /**
      * This function is used to set a title/name for your project.
      *
@@ -248,7 +248,7 @@ class Configuration
     {
         self::$application_name = $projectTitle;
     }
-    
+
     /**
      * Title of your application.
      *
@@ -258,7 +258,7 @@ class Configuration
     {
         return self::$application_name;
     }
-    
+
     /**
      * This function is used to set version number of your application.
      *
@@ -270,7 +270,7 @@ class Configuration
     {
         self::$application_version = $projectV;
     }
-    
+
     /**
      * Version number of your application.
      *
@@ -280,7 +280,7 @@ class Configuration
     {
         return self::$application_version;
     }
-    
+
     /**
      * This function is used to set a description for your application.
      *
@@ -292,7 +292,7 @@ class Configuration
     {
         self::$application_description = $projectD;
     }
-    
+
     /**
      * Description of your application.
      *
@@ -302,17 +302,17 @@ class Configuration
     {
         return self::$application_description;
     }
-    
+
     /**
      * Set Static Routes.
      *
      * @param array $ssr
      */
-    protected static function setStaticRoute($ssr = array())
+    protected static function setStaticRoute($ssr = [])
     {
         self::$application_static_routes = $ssr;
     }
-    
+
     /**
      * Get Static Routes.
      */
@@ -320,5 +320,4 @@ class Configuration
     {
         return self::$application_static_routes;
     }
-    
 }
