@@ -7,7 +7,7 @@
  * @author Sinan SALIH
  * @copyright Copyright (C) 2018-2019 Sinan SALIH
  */
-defined("START") || (header("HTTP/1.1 403 Forbidden") & die("403.14 - Directory listing denied."));
+defined('START') || (header('HTTP/1.1 403 Forbidden') & die('403.14 - Directory listing denied.'));
 
 use limeberry\Configuration;
 
