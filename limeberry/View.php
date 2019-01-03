@@ -13,7 +13,7 @@ namespace limeberry;
 
 use limeberry\Configuration as conf;
 use function file_exists;
-use const true
+use const true;
 
 /**
  * This class is used to create an instance of view files.
