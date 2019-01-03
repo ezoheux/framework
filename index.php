@@ -10,8 +10,6 @@
  */
 
 use limeberry\Framework;
-
-require_once 'limeberry/Framework.php';
 	
 // app_config.php is the configuration file for your project.
 Framework::LoadConfig("app_config.php");   
