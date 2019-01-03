@@ -28,6 +28,11 @@
         },
         "files": [ "./base.php" ]
     },
+    "autoload-dev": {
+        "psr-4": {
+            "limeberry\\": "./limeberry"
+        }
+    }
     "require": {
         "php": ">=5.6"
     },
