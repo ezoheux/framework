@@ -1,24 +1,22 @@
 <?php
 /**
- * Limeberry Framework
- *   
+ * Limeberry Framework.
+ *
  * A php framework for fast web development.
- *   
- * @package Limeberry Framework
+ *
  * @author Sinan SALIH
  * @copyright Copyright (C) 2018-2019 Sinan SALIH
  */
 
 namespace limeberry;
 
-use limeberry\Configuration;
-use function is_null;
 use const null;
-    
+use function is_null;
+
 /**
- * This class is used to simply manage routes of your application.
- * All functions of this class must be used in Application Register Function
- */
+     * This class is used to simply manage routes of your application.
+     * All functions of this class must be used in Application Register Function.
+     */
 class Route extends Configuration
 {
     /**
@@ -29,10 +27,10 @@ class Route extends Configuration
      *
      * @return void Returns nothing.
      */
-    public static function MapNew($mapname = "index", $mapdestination = "index/index/0")
+    public static function MapNew($mapname = 'index', $mapdestination = 'index/index/0')
     {
         $application_static_routes = parent::getStaticRoute();
-        $application_static_routes[$mapname] = Configuration::getApplicationUrl() . '/' . $mapdestination;
+        $application_static_routes[$mapname] = Configuration::getApplicationUrl().'/'.$mapdestination;
         parent::setStaticRoute($application_static_routes);
     }
 
@@ -42,43 +40,43 @@ class Route extends Configuration
      * @param type $mapname The map name.
      *
      * @return string The resolved static map.
-     */        
+     */
     public static function ResolveMap($mapname = null)
     {
         $application_static_routes = Configuration::getStaticRoute();
         if (!is_null($mapname)) {
-           return $application_static_routes[$mapname];
+            return $application_static_routes[$mapname];
         } else {
-           return $application_static_routes;
-        }   
+            return $application_static_routes;
+        }
     }
 
     /**
-     * This function is used to redirect your application with headers. 
+     * This function is used to redirect your application with headers.
      *
      * @param type $mapname      The map name.
      * @param type $setparameter The parameter.
      *
      * @return void Returns nothing.
      */
-    public static function ForceRedirect($mapname = "index", $setparameter = null)
+    public static function ForceRedirect($mapname = 'index', $setparameter = null)
     {
         $application_static_routes = Configuration::getStaticRoute();
         if (isset($application_static_routes[$mapname])) {
             if (!is_null($setparameter)) {
-                $tagToReplace = "{@}";
+                $tagToReplace = '{@}';
                 $application_static_routes[$mapname] = str_replace($tagToReplace, $setparameter, $application_static_routes[$mapname]);
                 header('location: '.$application_static_routes[$mapname]);
                 exit();
             } else {
-                $tagToReplace = "{@}";
-                $application_static_routes[$mapname] = str_replace($tagToReplace, "", $application_static_routes[$mapname]);
-                header('location: ' . $application_static_routes[$mapname]);
+                $tagToReplace = '{@}';
+                $application_static_routes[$mapname] = str_replace($tagToReplace, '', $application_static_routes[$mapname]);
+                header('location: '.$application_static_routes[$mapname]);
                 exit();
             }
-        }    
+        }
     }
-                
+
     /**
      * Clear all mapped routes.
      *
@@ -86,7 +84,7 @@ class Route extends Configuration
      */
     public static function ClearMaps()
     {
-        Configuration::setStaticRoute(array());
+        Configuration::setStaticRoute([]);
     }
 
     /**
@@ -100,6 +98,7 @@ class Route extends Configuration
     {
         if (!is_null($requested)) {
             $toks = explode('/', rtrim($_SERVER['REQUEST_URI']));
+
             return $toks[$requested];
         } else {
             return explode('/', rtrim($_SERVER['REQUEST_URI']));

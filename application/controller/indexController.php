@@ -1,14 +1,11 @@
 <?php
 
-use limeberry\Controller As myController;
-use limeberry\core\Resources;
+use limeberry\Controller as myController;
 
-class indexController extends myController{
-    
-    public function indexAction($param=0)
-    {      
-        $this->View->Render("start_screen.php");
+class indexController extends myController
+{
+    public function indexAction($param = 0)
+    {
+        $this->View->Render('start_screen.php');
     }
 }
-
-?>

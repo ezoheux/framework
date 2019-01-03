@@ -1,10 +1,9 @@
 <?php
 /**
- * Limeberry Framework
- *   
+ * Limeberry Framework.
+ *
  * A php framework for fast web development.
- *   
- * @package Limeberry Framework
+ *
  * @author Sinan SALIH
  * @copyright Copyright (C) 2018-2019 Sinan SALIH
  */
@@ -12,14 +11,14 @@
 namespace limeberry;
 
 use limeberry\Configuration as conf;
-use function explode;
-use function is_null;
 use const null;
 use const true;
-    
+use function explode;
+use function is_null;
+
 /**
- * An url Helper class to manage your application's routing and navigating actions. 
- */
+     * An url Helper class to manage your application's routing and navigating actions.
+     */
 class Url
 {
     /**
@@ -34,14 +33,14 @@ class Url
      * @return string Returns the app url.
      */
     public static function RedirectToAction($controllerName, $action, $parameter = null)
-    { 
+    {
         if (isset($parameter) && !is_null($parameter)) {
-            return conf::getApplicationUrl() . '/' . $controllerName . '/' . $action . '/' . $parameter;
+            return conf::getApplicationUrl().'/'.$controllerName.'/'.$action.'/'.$parameter;
         } else {
-            return conf::getApplicationUrl() . '/' . $controllerName . '/' . $action;
+            return conf::getApplicationUrl().'/'.$controllerName.'/'.$action;
         }
     }
-        
+
     /**
      * This function returns a redirectable url from your controllers's actions in an Area.
      * For example you can use this with html's <a> tags href attribute.
@@ -54,42 +53,42 @@ class Url
      *
      * @return string
      */
-    public static function AreaRedirection($Area = "", $controllerName = "", $action = "", $parameter = null)
+    public static function AreaRedirection($Area = '', $controllerName = '', $action = '', $parameter = null)
     {
-        $addArea = "?p=" . $Area;
+        $addArea = '?p='.$Area;
         if (isset($parameter) && !is_null($parameter)) {
-            return conf::getApplicationUrl() . '/' . $controllerName . '/' . $action . '/' . $parameter.$addArea;
+            return conf::getApplicationUrl().'/'.$controllerName.'/'.$action.'/'.$parameter.$addArea;
         } else {
-            return conf::getApplicationUrl() . '/' . $controllerName . '/' . $action.$addArea;
+            return conf::getApplicationUrl().'/'.$controllerName.'/'.$action.$addArea;
         }
     }
-        
+
     /**
      * @ignore
      */
     public function getArea($willWork = true)
     {
         $application_query_data = conf::getQuery();
-        if (!empty($application_query_data["p"])) {
-            return $application_query_data["p"] . "Area" . DS;
+        if (!empty($application_query_data['p'])) {
+            return $application_query_data['p'].'Area'.DS;
         } else {
-            return "";
+            return '';
         }
     }
 
     /**
      * Simple redirect url
-     * For example you can use this with html's < a > tags href attribute  
+     * For example you can use this with html's < a > tags href attribute.
      *
-     * @param string $url Url.
+     * @param string $url  Url.
      * @param string $secs Time to wait before redirect.
      *
      * @return void Returns nothing.
      */
-    public static function Redirect($url = '', $secs = "0")
-    { 
-        if (!headers_sent()) { 
-            header('Location: ' . $url);
+    public static function Redirect($url = '', $secs = '0')
+    {
+        if (!headers_sent()) {
+            header('Location: '.$url);
         } else {
             echo '<script type="text/javascript">';
             echo 'window.location.href="'.$url.'";';
@@ -98,17 +97,17 @@ class Url
             echo '<meta http-equiv="refresh" content="'.$secs.'";url='.$url.'" />';
             echo '</noscript>';
         }
-	exit;
+        exit;
     }
 
     /**
-     * Returns current page url
+     * Returns current page url.
      *
      * @return string Return the current url.
      */
     public static function getUrl()
     {
-        return (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        return (isset($_SERVER['HTTPS']) ? 'https' : 'http')."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     }
 
     /**
@@ -125,7 +124,7 @@ class Url
             return $application_query_data;
         } else {
             if (empty($application_query_data[$paramid])) {
-                return "-1";
+                return '-1';
             } else {
                 return $application_query_data[$paramid];
             }
@@ -138,14 +137,14 @@ class Url
     public static function _clear_url_parameters($query_params = null)
     {
         $application_query_data = conf::getQuery();
-        $temp_data = array();
-        $qprm_a = explode("&", $query_params);
+        $temp_data = [];
+        $qprm_a = explode('&', $query_params);
         foreach ($qprm_a as $url_data) {
             if (!empty($url_data)) {
-                $qprm_b = explode("=", $url_data);
+                $qprm_b = explode('=', $url_data);
                 $temp_data[$qprm_b[0]] = $qprm_b[1];
             }
-        } 
+        }
         $application_query_data = $temp_data;
     }
 }

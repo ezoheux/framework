@@ -1,15 +1,15 @@
 <?php
 
 /**
-*	Limeberry Framework
-*	
-*	a php framework for fast web development.
-*	
-*	@package Limeberry Framework
-*	@author Sinan SALIH
-*	@copyright Copyright (C) 2018-2019 Sinan SALIH
-*	
-**/
+ *	Limeberry Framework.
+ *
+ *	a php framework for fast web development.
+ *
+ *	@author Sinan SALIH
+ *	@copyright Copyright (C) 2018-2019 Sinan SALIH
+ *
+ **/
+
 namespace limeberry\security
 {
     /**
@@ -18,15 +18,15 @@ namespace limeberry\security
      */
     class RoleProvider
     {
-
-        private static $all_roles=array();
-        private static $required_roles = array();
-        private static $provided_roles = array();
+        private static $all_roles = [];
+        private static $required_roles = [];
+        private static $provided_roles = [];
 
         /**
          * This function is used to fill roles with id and value from database.
          * This is necessary for using role manager class.
-         * @param Array $rolelist Set all roles to role provider class. Array key is id in database and value is a named provision of role
+         *
+         * @param array $rolelist Set all roles to role provider class. Array key is id in database and value is a named provision of role
          */
         public static function FillRoles($rolelist)
         {
@@ -36,7 +36,8 @@ namespace limeberry\security
         /**
          * This function is used to set required roles for controller or controller action. If you want to affect
          * a whole controller with set role you must setup role manager in construct method.
-         * @param Array $rolelist Required roles for a action in a controller or in whole controller.
+         *
+         * @param array $rolelist Required roles for a action in a controller or in whole controller.
          */
         public static function RequiredRoles($rolelist)
         {
@@ -48,27 +49,30 @@ namespace limeberry\security
             self::$provided_roles = $rolelist;
         }
 
-
-
         /**
-         *  Return all roles in array
-         * @return Array
+         *  Return all roles in array.
+         *
+         * @return array
          */
         public static function get_all_roles()
         {
             return self::$all_roles;
         }
+
         /**
          * Get Provided roles in array.
-         * @return Array
+         *
+         * @return array
          */
         public static function get_provided_roles()
         {
             return self::$provided_roles;
         }
+
         /**
          * Returns required roles for controller or action.
-         * @return Array
+         *
+         * @return array
          */
         public static function get_required_roles()
         {
@@ -76,6 +80,3 @@ namespace limeberry\security
         }
     }
 }
-
-
-?>

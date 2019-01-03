@@ -1,137 +1,118 @@
 <?php
 
 /**
-*	Limeberry Framework
-*	
-*	a php framework for fast web development.
-*	
-*	@package Limeberry Framework
-*	@author Sinan SALIH
-*	@copyright Copyright (C) 2018-2019 Sinan SALIH
-*	
-**/
+ *	Limeberry Framework.
+ *
+ *	a php framework for fast web development.
+ *
+ *	@author Sinan SALIH
+ *	@copyright Copyright (C) 2018-2019 Sinan SALIH
+ *
+ **/
+
 namespace limeberry\helpers
 {
-    define('REVERSE_HORIZONTAL', "h");
-    define('REVERSE_VERTICAL', "v");
-    
+    define('REVERSE_HORIZONTAL', 'h');
+    define('REVERSE_VERTICAL', 'v');
+
     /**
-     * This is a helper class for arrays. It's adds various features to arrays
+     * This is a helper class for arrays. It's adds various features to arrays.
      */
     class Arrays
     {
-        
-        
         /**
          * Select one or more element from an array.
+         *
          * @param type $array_name Search in array
-         * @param type $choose String for one element, or array for multiple elements
-         * @return Mixed
+         * @param type $choose     String for one element, or array for multiple elements
+         *
+         * @return mixed
          */
-        public static function getElement(&$array_name, $choose = "" )
+        public static function getElement(&$array_name, $choose = '')
         {
-            if(is_array($choose))
-            {
-                $ret = array();
-                foreach ($choose as $v)
-                {
-                    if(array_key_exists($v, $array_name))
-                    {
+            if (is_array($choose)) {
+                $ret = [];
+                foreach ($choose as $v) {
+                    if (array_key_exists($v, $array_name)) {
                         $ret[$v] = $array_name[$v];
                     }
                 }
+
                 return $ret;
-            }else
-            {
-                if(array_key_exists($choose, $array_name))
-                {
+            } else {
+                if (array_key_exists($choose, $array_name)) {
                     return $array_name[$choose];
                 }
             }
         }
-        
-        
+
         /**
-         * Sets element(s) of array to empty
+         * Sets element(s) of array to empty.
+         *
          * @param type $array_name Operate in array
-         * @param type $element array key to set empty
+         * @param type $element    array key to set empty
          */
-        public static function setEmpty(&$array_name, $element = "")
+        public static function setEmpty(&$array_name, $element = '')
         {
-            if(is_array($element))
-            {
-                foreach ($element as $v)
-                {
-                    if(array_key_exists($v, $array_name))
-                    {
-                        $array_name[$v] = "";
+            if (is_array($element)) {
+                foreach ($element as $v) {
+                    if (array_key_exists($v, $array_name)) {
+                        $array_name[$v] = '';
                     }
                 }
-            }else
-            {
-                if(array_key_exists($element, $array_name))
-                {
-                    $array_name[$element] = "";
+            } else {
+                if (array_key_exists($element, $array_name)) {
+                    $array_name[$element] = '';
                 }
             }
         }
-        
-         
+
         /**
-         * Sets element(s) of array to NULL
+         * Sets element(s) of array to NULL.
+         *
          * @param type $array_name Operate in array
-         * @param type $element array key to set empty
+         * @param type $element    array key to set empty
          */
-        public static function setNull(&$array_name, $element = "")
+        public static function setNull(&$array_name, $element = '')
         {
-            if(is_array($element))
-            {
-                foreach ($element as $v)
-                {
-                    if(array_key_exists($v, $array_name))
-                    {
-                        $array_name[$v] = NULL;
+            if (is_array($element)) {
+                foreach ($element as $v) {
+                    if (array_key_exists($v, $array_name)) {
+                        $array_name[$v] = null;
                     }
                 }
-            }else
-            {
-                if(array_key_exists($element, $array_name))
-                {
-                    $array_name[$element] = NULL;
+            } else {
+                if (array_key_exists($element, $array_name)) {
+                    $array_name[$element] = null;
                 }
             }
         }
-        
-        
-        
+
         /**
-         * Reverse an array horizontally or vertically
+         * Reverse an array horizontally or vertically.
+         *
          * @param type $array_name Array to operate on
-         * @param type $type REVERSE_HORIZONTAL or REVERSE_VERTICAL
+         * @param type $type       REVERSE_HORIZONTAL or REVERSE_VERTICAL
          */
-        public static function Reverse(&$array_name, $type = "h")
+        public static function Reverse(&$array_name, $type = 'h')
         {
-            $created = array();
+            $created = [];
             switch ($type) {
-                case "h":
-                    foreach ($array_name as $key => $value) 
-                    {
+                case 'h':
+                    foreach ($array_name as $key => $value) {
                         $created[$value] = $key;
                     }
                     $array_name = $created;
                     break;
-                case "v":
-                    $created  = array_reverse($array_name, true);
+                case 'v':
+                    $created = array_reverse($array_name, true);
                     $array_name = $created;
                     break;
                 default:
                     break;
             }
+
             return $created;
         }
-       
-    
     }
 }
-
-?>

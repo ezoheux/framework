@@ -1,10 +1,9 @@
 <?php
 /**
- * Limeberry Framework
- *   
+ * Limeberry Framework.
+ *
  * A php framework for fast web development.
- *   
- * @package Limeberry Framework
+ *
  * @author Sinan SALIH
  * @copyright Copyright (C) 2018-2019 Sinan SALIH
  */
@@ -12,39 +11,39 @@
 namespace limeberry;
 
 use limeberry\Configuration as conf;
-use function htmlspecialchars;
-use function trigger_error;
-use function file_exists;
-use function str_replace;
-use function ob_start;
-use function ob_get_clean;
-use const ENT_QUOTES;
 use const E_USER_ERROR;
+use const ENT_QUOTES;
+use function file_exists;
+use function htmlspecialchars;
+use function ob_get_clean;
+use function ob_start;
+use function str_replace;
+use function trigger_error;
 
-/**
+/*
  * @ignore
  */
-define("rPath", conf::getApplicationUrl() . DS . conf::getApplicationFolder() . DS . 'template' . DS);
+define('rPath', conf::getApplicationUrl().DS.conf::getApplicationFolder().DS.'template'.DS);
 
 /**
  * This library is used in templates and views.
- */       
+ */
 class Page
 {
     /** @ignore */
     private $title;
-                
+
     /** @ignore */
     private $contents;
-                
+
     /** @ignore */
     private $layoutPath;
 
     /** @ignore */
     private $output;
-                
+
     /** @ignore */
-    protected $values = array();
+    protected $values = [];
 
     /** @ignore */
     private $MASTER;
@@ -56,7 +55,7 @@ class Page
      */
     public function __construct()
     {
-        $this->MASTER = ROOT . DS . conf::getApplicationFolder() . DS . 'template' . DS;		
+        $this->MASTER = ROOT.DS.conf::getApplicationFolder().DS.'template'.DS;
     }
 
     /**
@@ -66,15 +65,15 @@ class Page
      *
      * @return void Returns nothing.
      */
-    public function setLayout($layoutPathParam = "master.php")
+    public function setLayout($layoutPathParam = 'master.php')
     {
-        if (file_exists($this->MASTER . $this->layoutPath . $layoutPathParam)) {
-            $this->layoutPath = $this->MASTER . $this->layoutPath . $layoutPathParam;
+        if (file_exists($this->MASTER.$this->layoutPath.$layoutPathParam)) {
+            $this->layoutPath = $this->MASTER.$this->layoutPath.$layoutPathParam;
         } else {
             // Prevent XSS Attacks.
-            $output = $this->MASTER . $this->layoutPath . $layoutPathParam;
+            $output = $this->MASTER.$this->layoutPath.$layoutPathParam;
             $output = htmlspecialchars($output, ENT_QUOTES, 'UTF-8');
-            trigger_error("Error loading template file (" . $output . "). Please check template folder.", E_USER_ERROR);
+            trigger_error('Error loading template file ('.$output.'). Please check template folder.', E_USER_ERROR);
         }
     }
 
@@ -86,11 +85,11 @@ class Page
      *
      * @return void Returns nothing.
      */
-    public function setParameter($paramName, $paramValue) 
+    public function setParameter($paramName, $paramValue)
     {
         $this->values[$paramName] = $paramValue;
     }
-                
+
     /**
      * Set null value to unused parameter in template files.
      *
@@ -98,9 +97,9 @@ class Page
      *
      * @return void Returns nothing.
      */
-    public function setParameterNull($paramName) 
+    public function setParameterNull($paramName)
     {
-        $this->values[$paramName] = "";
+        $this->values[$paramName] = '';
     }
 
     /**
@@ -121,7 +120,7 @@ class Page
     {
         $this->title = $paramTitle;
     }
-                
+
     /**
      * Include a css or js file in your template file. This function returns a relative
      * path for template folder.
@@ -132,7 +131,7 @@ class Page
      */
     public static function includeFile($fileName = '')
     {
-        return rPath . $fileName;
+        return rPath.$fileName;
     }
 
     /**
@@ -162,7 +161,7 @@ class Page
     private function CreateView()
     {
         ob_start();
-        include_once($this->layoutPath);
+        include_once $this->layoutPath;
         $this->output = ob_get_clean();
         $this->__applyParameters();
         echo $this->output;

@@ -58,7 +58,7 @@ use limeberry\Url as purl;
             <div class="box">
                 <span class="errorHeader">Page Not Found!</span>
                 <p>
-                    The requested page does not exist. Please go to the home page by clicking <a href="<?php echo purl::RedirectToAction("index", "index") ?>">Here</a>.
+                    The requested page does not exist. Please go to the home page by clicking <a href="<?php echo purl::RedirectToAction('index', 'index') ?>">Here</a>.
                 </p>
             </div>
         </div>

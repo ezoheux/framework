@@ -5,11 +5,11 @@
      * This is a index page. You can delete this and create your own index page.
      * You have been redirected to this view from Index controller and IndexAction.
      */
-    use limeberry\Page;
     use limeberry\Core\FrameworkInfo as fwi;
-    
+    use limeberry\Page;
+
     $view = new Page();
-    $view->SetLayout("master.php");
+    $view->SetLayout('master.php');
     $view->BeginContent();
 
 ?>
@@ -66,7 +66,7 @@
 <div class="content">
     <div class="box">
         <center>
-            <img src="<?= $view->includeFile("img/limeberry.logo.png"); ?>"> <br>
+            <img src="<?= $view->includeFile('img/limeberry.logo.png'); ?>"> <br>
             <span class="welcomeHeader">Limeberry</span> <br>
             <b>Version: </b> <?= fwi::VersionNumber(); ?>
             <br><br>
@@ -100,6 +100,6 @@
           
         
 <?php 
-    $view->EndContent(); 
+    $view->EndContent();
 ?>
 
