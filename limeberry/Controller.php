@@ -17,10 +17,9 @@ use limeberry\core\Content;
  */
 class Controller
 {
-    
     private $current_version = '';
     private $controller_author = '';
-    
+
     /**
      * Initialize.
      *
@@ -28,10 +27,10 @@ class Controller
      */
     public function __construct()
     {
-        $this->View    = new View();
+        $this->View = new View();
         $this->Content = new Content();
     }
-    
+
     /**
      * Set version for your controller.
      *
@@ -42,10 +41,10 @@ class Controller
     public function setVersion($version)
     {
         $this->current_version = $version;
-        
+
         return $this;
     }
-    
+
     /**
      * Set author to the controller.
      *
@@ -56,10 +55,10 @@ class Controller
     public function setAuthor($fullname)
     {
         $this->controller_author = $fullname;
-        
+
         return $this;
     }
-    
+
     /**
      * Get controller's version number.
      *
@@ -69,7 +68,7 @@ class Controller
     {
         return $this->current_version;
     }
-    
+
     /**
      * Get controller's author.
      *
@@ -79,7 +78,7 @@ class Controller
     {
         return $this->controller_author;
     }
-    
+
     /**
      * This function is used to return an array of defined functions of your controller.
      */
@@ -87,7 +86,7 @@ class Controller
     {
         return get_class_methods($this);
     }
-    
+
     /**
      * This function is used to return an array of defined variables of your controller.
      */
