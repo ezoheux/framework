@@ -8,8 +8,7 @@
  * @copyright Copyright (C) 2018-2019 Sinan SALIH
  */
 
-
-
+defined("START") ? null : define("START", microtime());
  
  /**
   * Required for Composer to load libraries.
