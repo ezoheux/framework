@@ -1,14 +1,12 @@
 <?php
-
 /**
- *	Limeberry Framework.
+ * Limeberry Framework.
  *
- *	a php framework for fast web development.
+ * A php framework for fast web development.
  *
- *	@author Sinan SALIH
- *	@copyright Copyright (C) 2018-2019 Sinan SALIH
- *
- **/
+ * @author Sinan SALIH
+ * @copyright Copyright (C) 2018-2019 Sinan SALIH
+ */
 
 namespace limeberry;
 
