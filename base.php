@@ -9,8 +9,8 @@
  */
 
 /**
-  * Directory Separator Constant.
-  */
+ * Directory Separator Constant.
+ */
 define('DS', DIRECTORY_SEPARATOR);
 
 /*
