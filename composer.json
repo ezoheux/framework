@@ -25,7 +25,8 @@
     "autoload": {
         "psr-4": {
             "limeberry\\": "./limeberry"
-        }
+        },
+        "files": [ "./base.php" ]
     },
     "require": {
         "php": ">=5.6"
