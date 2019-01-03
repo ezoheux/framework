@@ -61,6 +61,10 @@ class Framework
      */
     public static function Run()
     {
+        if (!isset($_SERVER['REQUEST_URI'])) {
+            $_SERVER['REQUEST_URI'] = '';
+        }
+        
         // explode query data to array for using with security check.
         $url_spr_act = explode('?', rtrim($_SERVER['REQUEST_URI']));
         $tokens = explode('/', $url_spr_act[0]);
