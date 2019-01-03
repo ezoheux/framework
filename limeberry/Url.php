@@ -17,8 +17,8 @@ use function explode;
 use function is_null;
 
 /**
-     * An url Helper class to manage your application's routing and navigating actions.
-     */
+ * An url Helper class to manage your application's routing and navigating actions.
+ */
 class Url
 {
     /**

@@ -37,8 +37,8 @@ namespace limeberry\dataman
         /**
          * Create a command.
          *
-         * @param string $query Write your query
-         * @param mixed Variable $con get connection source from MySqlConnect class.
+         * @param string         $query Write your query
+         * @param mixed Variable $con   get connection source from MySqlConnect class.
          */
         public function __construct($query = null, $con = null)
         {
@@ -49,9 +49,9 @@ namespace limeberry\dataman
         /**
          * This function is used when you use parameterized queries.
          *
-         * @param string $param  Parameter name
+         * @param string $param Parameter name
          * @param string $value Parameter's value
-         * @param type $type optional PDO::Parameter_TYPE
+         * @param type   $type  optional PDO::Parameter_TYPE
          */
         public function SetParameter($param, $value, $type = null)
         {

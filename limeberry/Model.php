@@ -13,8 +13,8 @@ namespace limeberry;
 use function file_exists;
 
 /**
-     * This class is used to operate with models.
-     */
+ * This class is used to operate with models.
+ */
 class Model
 {
     /**
