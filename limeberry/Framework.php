@@ -14,11 +14,14 @@ use limeberry\Configuration as conf;
 use limeberry\Url as purl;
 use const E_USER_ERROR;
 use const false;
+use const true;
 use function class_exists;
 use function file_exists;
 use function method_exists;
 use function strpos;
 use function trigger_error;
+
+defined('FRAMEWORK_LOADED') || define('FRAMEWORK_LOADED', true);
 
 /**
  * Core Module of Limeberry Framework
