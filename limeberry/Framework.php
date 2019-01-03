@@ -21,8 +21,6 @@ use function method_exists;
 use function strpos;
 use function trigger_error;
 
-defined('FRAMEWORK_LOADED') || define('FRAMEWORK_LOADED', true);
-
 /**
  * Core Module of Limeberry Framework
  * [Note]: Modification on this file is not recommended you may break the operation of you application.
