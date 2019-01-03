@@ -6,6 +6,6 @@ class ComposerTest extends TestCase
 {
     public function testFrameworkLoadedThroughComposer()
     {
-        $this->assertTrue(defined('FRAMEWORK_LOADED'));
+        $this->assertTrue(defined('limeberry\FRAMEWORK_LOADED'));
     }
 }
